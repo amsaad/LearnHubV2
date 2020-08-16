@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="LK\LKTag.cs" />
+    <Compile Include="LK\LKCategory.cs" />
     <Compile Include="LK\LKInstructor.cs" />
     <Compile Include="LK\BaseLK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
