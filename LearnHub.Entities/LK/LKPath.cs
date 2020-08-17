@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Entities
 {
-    class LKInstructor : BaseLK
+    class LKPath : BaseLK
     {
-        public int CoursesCounter { get; set; }
+        public string CertName { get; set; }
         public string About { get; set; }
-        public string ImgID { get; set; }
-        public int Rank { get; set; }         
+        public int CoursesCounter { get; set; }
+
     }
 }

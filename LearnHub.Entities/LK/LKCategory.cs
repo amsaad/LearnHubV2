@@ -8,6 +8,7 @@ namespace LearnHub.Entities
 {
     class LKCategory : BaseLK
     {
+        public int CoursesCounter { get; set; }
 
     }
 }

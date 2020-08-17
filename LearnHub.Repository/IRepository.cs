@@ -18,5 +18,6 @@ namespace LearnHub.Repository
         void Delete(int ID);
         void Delete(T entity);
         void Delete(Expression<Func<T, bool>> condation);
+        void Save();
     }
 }
