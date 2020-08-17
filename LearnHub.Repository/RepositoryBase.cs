@@ -96,5 +96,8 @@ namespace LearnHub.Repository
             dbSet.Remove(entity);
             DbContext.SaveChanges();
         }
+        public virtual Save(){
+DbContext.SaveChanges();
+        }
     }
 }

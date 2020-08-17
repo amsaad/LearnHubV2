@@ -13,9 +13,7 @@ namespace LearnHub.Entities
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
-
-
-        //public DateTime CreationDate { get; set; } = DateTime.UtcNow;
-        //public DateTime? ModifiedDate { get; set; }
+        public DateTime CreationDate { get; set; } = DateTime.UtcNow;
+        public DateTime? ModifiedDate { get; set; }
     }
 }
