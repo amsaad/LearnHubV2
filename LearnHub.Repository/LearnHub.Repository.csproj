@@ -55,6 +55,7 @@
     <Compile Include="ILearnHubDbFactory.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="LearnHubEntities.cs" />
+    <Compile Include="LkRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryBase.cs" />
   </ItemGroup>

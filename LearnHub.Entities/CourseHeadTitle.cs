@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace LearnHub.Entities
 {
     public class CourseHeadTitle:BaseEntity

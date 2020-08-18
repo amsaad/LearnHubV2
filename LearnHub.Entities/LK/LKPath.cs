@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Entities
 {
-    class LKPath : BaseLK
+    public class LKPath : BaseLK
     {
         public string CertName { get; set; }
         public string About { get; set; }

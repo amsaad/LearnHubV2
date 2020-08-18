@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Entities
 {
-    class BaseEntity
+    public class BaseEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Entities
 {
-    class BaseLK : BaseEntity
+    public class BaseLK : BaseEntity
     {
         [Required, StringLength(maximumLength: 250, MinimumLength = 10)]
         public string Name { get; set; }
