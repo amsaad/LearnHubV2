@@ -43,11 +43,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Course.cs" />
+    <Compile Include="CourseHeadTitle.cs" />
+    <Compile Include="CourseRequest.cs" />
+    <Compile Include="CourseTitle.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="LK\LKPath.cs" />
     <Compile Include="LK\LKTag.cs" />
     <Compile Include="LK\LKCategory.cs" />
     <Compile Include="LK\LKInstructor.cs" />
     <Compile Include="LK\BaseLK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCourses.cs" />
+    <Compile Include="UserFav.cs" />
+    <Compile Include="UserNotes.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

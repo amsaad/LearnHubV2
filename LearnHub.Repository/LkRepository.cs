@@ -1,7 +1,9 @@
 namespace LearnHub.Repository
 {
-    public class LkRepository:RepositoryBase, IRepository
+    public class LkRepository : RepositoryBase<LkRepository>
     {
-        
+        public LkRepository(ILearnHubDbFactory dbFactory) : base(dbFactory)
+        {
+        }
     }
 }
