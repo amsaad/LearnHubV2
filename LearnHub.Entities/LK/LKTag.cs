@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Entities
 {
-    class LKTag : BaseLK
+   public class LKTag : BaseLK
     {
 
     }

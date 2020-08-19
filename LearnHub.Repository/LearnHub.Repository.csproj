@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -35,10 +34,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -51,13 +56,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbFactory.cs" />
-    <Compile Include="ILearnHubDbFactory.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="LearnHubEntities.cs" />
-    <Compile Include="LkRepositoryBase.cs" />
+    <Compile Include="Configs\DbFactory.cs" />
+    <Compile Include="Configs\ILearnHubDbFactory.cs" />
+    <Compile Include="Configs\IRepository.cs" />
+    <Compile Include="Configs\LearnHubEntities.cs" />
+    <Compile Include="LK\LKPathStore.cs" />
+    <Compile Include="LK\LKInstructorStore.cs" />
+    <Compile Include="LK\LKTagStore.cs" />
+    <Compile Include="LK\LKCategoryStore.cs" />
+    <Compile Include="Migrations\202008190932023_lookupsv1.cs" />
+    <Compile Include="Migrations\202008190932023_lookupsv1.designer.cs">
+      <DependentUpon>202008190932023_lookupsv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008191018542_UserMembershipTables.cs" />
+    <Compile Include="Migrations\202008191018542_UserMembershipTables.Designer.cs">
+      <DependentUpon>202008191018542_UserMembershipTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008191023298_nonCoreTables.cs" />
+    <Compile Include="Migrations\202008191023298_nonCoreTables.Designer.cs">
+      <DependentUpon>202008191023298_nonCoreTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008191024388_CoreTables.cs" />
+    <Compile Include="Migrations\202008191024388_CoreTables.Designer.cs">
+      <DependentUpon>202008191024388_CoreTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryBase.cs" />
+    <Compile Include="Configs\RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -69,13 +94,19 @@
       <Name>LearnHub.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202008190932023_lookupsv1.resx">
+      <DependentUpon>202008190932023_lookupsv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008191018542_UserMembershipTables.resx">
+      <DependentUpon>202008191018542_UserMembershipTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008191023298_nonCoreTables.resx">
+      <DependentUpon>202008191023298_nonCoreTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008191024388_CoreTables.resx">
+      <DependentUpon>202008191024388_CoreTables.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-  </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

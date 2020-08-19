@@ -5,17 +5,19 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-DomainAndService", "0-DomainAndService", "{9CDA546D-228C-432D-AA9A-976F5A509D38}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-DomainService", "1-DomainService", "{58866764-253B-4886-9921-8114C79E195D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Middleware", "2-Middleware", "{161E0CA7-F00A-4343-8C0D-5A887230BFC1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-UI", "4-UI", "{3579F0E5-DB5D-4BFE-971F-9C7697FBAFA8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Infrastructure", "3-Infrastructure", "{7BD02E37-00D6-4C62-9F43-B307F7D90217}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Infrastructure", "1-Infrastructure", "{7BD02E37-00D6-4C62-9F43-B307F7D90217}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Entities", "LearnHub.Entities\LearnHub.Entities.csproj", "{E70B1C80-E7DA-4FE4-AD57-EDFA41C1E5A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Repository", "LearnHub.Repository\LearnHub.Repository.csproj", "{CAF5F57A-19FC-4127-8817-39E5D16BF31B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.API", "LearnHub.API\LearnHub.API.csproj", "{E10714D5-E4D0-4F86-A492-9C923148518B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Web", "LearnHub.Web\LearnHub.Web.csproj", "{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{CAF5F57A-19FC-4127-8817-39E5D16BF31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAF5F57A-19FC-4127-8817-39E5D16BF31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAF5F57A-19FC-4127-8817-39E5D16BF31B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E10714D5-E4D0-4F86-A492-9C923148518B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E10714D5-E4D0-4F86-A492-9C923148518B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E10714D5-E4D0-4F86-A492-9C923148518B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E10714D5-E4D0-4F86-A492-9C923148518B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E70B1C80-E7DA-4FE4-AD57-EDFA41C1E5A4} = {9CDA546D-228C-432D-AA9A-976F5A509D38}
 		{CAF5F57A-19FC-4127-8817-39E5D16BF31B} = {9CDA546D-228C-432D-AA9A-976F5A509D38}
+		{E10714D5-E4D0-4F86-A492-9C923148518B} = {161E0CA7-F00A-4343-8C0D-5A887230BFC1}
+		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28} = {3579F0E5-DB5D-4BFE-971F-9C7697FBAFA8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8CCE01E2-85B3-4A14-8479-810F55C3C19D}

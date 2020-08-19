@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Entities
 {
-    class LKCategory : BaseLK
+   public class LKCategory : BaseLK
     {
         public int CoursesCounter { get; set; }
 
