@@ -24,6 +24,11 @@ namespace LearnHub.Repository
             get { return dataContext ?? (dataContext = DbFactory.Init()); }
         }
 
+        protected RepositoryBase()
+        {
+            DbFactory = new DbFactory();
+            dbSet = DbContext.Set<T>();
+        }
         protected RepositoryBase(ILearnHubDbFactory dbFactory)
         {
             DbFactory = dbFactory;
