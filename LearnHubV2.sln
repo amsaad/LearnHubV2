@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.API", "LearnHub.AP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Web", "LearnHub.Web\LearnHub.Web.csproj", "{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.ApiHelper", "LearnHub.ApiHelper\LearnHub.ApiHelper.csproj", "{0E2BDB19-6D46-4503-8B4C-FC52431525D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E2BDB19-6D46-4503-8B4C-FC52431525D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E2BDB19-6D46-4503-8B4C-FC52431525D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E2BDB19-6D46-4503-8B4C-FC52431525D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E2BDB19-6D46-4503-8B4C-FC52431525D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{CAF5F57A-19FC-4127-8817-39E5D16BF31B} = {9CDA546D-228C-432D-AA9A-976F5A509D38}
 		{E10714D5-E4D0-4F86-A492-9C923148518B} = {161E0CA7-F00A-4343-8C0D-5A887230BFC1}
 		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28} = {3579F0E5-DB5D-4BFE-971F-9C7697FBAFA8}
+		{0E2BDB19-6D46-4503-8B4C-FC52431525D5} = {161E0CA7-F00A-4343-8C0D-5A887230BFC1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8CCE01E2-85B3-4A14-8479-810F55C3C19D}

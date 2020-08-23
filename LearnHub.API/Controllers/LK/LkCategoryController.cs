@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace LearnHub.API.Controllers
 {
@@ -20,9 +21,9 @@ namespace LearnHub.API.Controllers
             }
         }
         // GET: api/LkCategory
-        public IEnumerable<LKCategory> Get()
+        public IHttpActionResult Get()
         {
-            return Store.GetAll();
+            return Json(Store.GetAll());
         }
 
         // GET: api/LkCategory/5

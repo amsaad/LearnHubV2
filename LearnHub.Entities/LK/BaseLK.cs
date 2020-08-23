@@ -9,7 +9,7 @@ namespace LearnHub.Entities
 {
     public class BaseLK : BaseEntity
     {
-        [Required, StringLength(maximumLength: 250, MinimumLength = 10)]
+        [Required, StringLength(maximumLength: 250, MinimumLength = 4)]
         public string Name { get; set; }
     }
 }

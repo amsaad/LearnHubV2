@@ -1,0 +1,2 @@
+    <add name="LearnHubDB" connectionString="Data Source=mi3-wsq3.a2hosting.com;Initial Catalog=amsaadco_lhv2;User ID=amsaadco_db;Password=x^628dAh5581563Z9#$Gq"
+

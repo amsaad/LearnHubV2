@@ -347,9 +347,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Admin\category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Integration\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -363,6 +365,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LearnHub.ApiHelper\LearnHub.ApiHelper.csproj">
+      <Project>{0e2bdb19-6d46-4503-8b4c-fc52431525d5}</Project>
+      <Name>LearnHub.ApiHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LearnHub.Entities\LearnHub.Entities.csproj">
       <Project>{E70B1C80-E7DA-4FE4-AD57-EDFA41C1E5A4}</Project>
       <Name>LearnHub.Entities</Name>
