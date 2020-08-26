@@ -10,7 +10,7 @@ namespace LearnHub.ApiHelper
     {
         Task<bool> Add(T entity);
         bool Update(T entity);
-        Task<IEnumerable<T>> GetAsync();
+        Task<List<T>> List();
         Task<bool> Remove(int ID);
     }
 }

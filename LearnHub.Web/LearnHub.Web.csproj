@@ -352,6 +352,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Integration\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -376,6 +377,10 @@
     <ProjectReference Include="..\LearnHub.Repository\LearnHub.Repository.csproj">
       <Project>{CAF5F57A-19FC-4127-8817-39E5D16BF31B}</Project>
       <Name>LearnHub.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnHub.Utils\LearnHub.Utils.csproj">
+      <Project>{34c6b532-370e-49a4-b0ca-05247533e338}</Project>
+      <Name>LearnHub.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -21,9 +21,11 @@ namespace LearnHub.API.Controllers
             }
         }
         // GET: api/LkCategory
-        public IHttpActionResult Get()
+        public HttpResponseMessage Get()
         {
-            return Json(Store.GetAll());
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK,
+                Store.GetAll().ToList());
+            return response;
         }
 
         // GET: api/LkCategory/5

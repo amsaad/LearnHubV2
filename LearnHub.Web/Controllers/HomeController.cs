@@ -3,6 +3,7 @@ using LearnHub.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,14 +11,9 @@ namespace LearnHub.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            LKCategory cat = new LKCategory()
-            {
-                Name="TestCat"
-            };
-            Category c = new Category();
-            ViewBag.ListOfItems = c.GetAsync();
+          await Category._category.List();
             return View();
         }
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Utils;
 
 namespace LearnHub.ApiHelper
 {
@@ -46,10 +47,12 @@ namespace LearnHub.ApiHelper
         {
             try
             {
-                return await ApiClient.GetAsync(ActionURL("List Items"));
+                LogProxy.LogEx("error here", nameof(ListItems));
+                return await ApiClient.GetAsync(ActionURL(nameof(ListItems)));
             }
             catch (Exception ex)
             {
+                LogProxy.LogEx("error here", ex);
                 return null;
             }
         }
