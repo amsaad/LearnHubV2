@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Repository
 {
-    public class LKTagStore : RepositoryBase<LKTag>, IRepository<LKTag>
+    public class LKTagStore : RepositoryBase<LKTag>
     {
         public LKTagStore():base(new LearnHubContext())
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Repository
 {
-    public class LKPathStore : RepositoryBase<LKPath>, IRepository<LKPath>
+    public class LKPathStore : RepositoryBase<LKPath>
     {
         
         public LKPathStore():base(new LearnHubContext())

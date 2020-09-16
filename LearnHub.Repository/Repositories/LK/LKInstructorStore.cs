@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Repository
 {
-    public class LKInstructorStore : RepositoryBase<LKInstructor>, IRepository<LKInstructor>
+    public class LKInstructorStore : RepositoryBase<LKInstructor>
     {
         public LKInstructorStore() : base(new LearnHubContext())
         {
