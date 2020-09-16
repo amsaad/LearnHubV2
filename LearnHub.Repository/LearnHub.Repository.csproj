@@ -56,10 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configs\DbFactory.cs" />
-    <Compile Include="Configs\ILearnHubDbFactory.cs" />
     <Compile Include="Configs\IRepository.cs" />
-    <Compile Include="Configs\LearnHubEntities.cs" />
+    <Compile Include="Configs\LearnHubContext.cs" />
     <Compile Include="LK\LKPathStore.cs" />
     <Compile Include="LK\LKInstructorStore.cs" />
     <Compile Include="LK\LKTagStore.cs" />
@@ -79,6 +77,10 @@
     <Compile Include="Migrations\202008191024388_CoreTables.cs" />
     <Compile Include="Migrations\202008191024388_CoreTables.Designer.cs">
       <DependentUpon>202008191024388_CoreTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009160929234_RestructTables.cs" />
+    <Compile Include="Migrations\202009160929234_RestructTables.Designer.cs">
+      <DependentUpon>202009160929234_RestructTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008191024388_CoreTables.resx">
       <DependentUpon>202008191024388_CoreTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009160929234_RestructTables.resx">
+      <DependentUpon>202009160929234_RestructTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

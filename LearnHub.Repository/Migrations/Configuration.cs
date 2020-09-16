@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<LearnHub.Repository.LearnHubEntities>
+    internal sealed class Configuration : DbMigrationsConfiguration<LearnHub.Repository.LearnHubContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(LearnHub.Repository.LearnHubEntities context)
+        protected override void Seed(LearnHub.Repository.LearnHubContext context)
         {
             //  This method will be called after migrating to the latest version.
 

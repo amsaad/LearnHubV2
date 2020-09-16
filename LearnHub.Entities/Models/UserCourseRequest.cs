@@ -1,6 +1,6 @@
 namespace LearnHub.Entities
 {
-    public class CourseRequest:BaseEntity
+    public class UserCourseRequest:BaseEntity
     {
         public int User { get; set; }
         public int CourseID { get; set; }

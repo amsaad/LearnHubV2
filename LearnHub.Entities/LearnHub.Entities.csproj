@@ -56,22 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UserIdentity.cs" />
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="Course.cs" />
-    <Compile Include="CourseHeadTitle.cs" />
-    <Compile Include="CourseRequest.cs" />
-    <Compile Include="CourseTitle.cs" />
+    <Compile Include="Models\AppRole.cs" />
+    <Compile Include="Models\AppUser.cs" />
+    <Compile Include="Models\Base\BaseEntity.cs" />
+    <Compile Include="Models\HubCourses.cs" />
+    <Compile Include="Models\HubCoursesHeadTitles.cs" />
+    <Compile Include="Models\UserCourseRequest.cs" />
+    <Compile Include="Models\HubCoursesTitles.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="LK\LKPath.cs" />
-    <Compile Include="LK\LKTag.cs" />
-    <Compile Include="LK\LKCategory.cs" />
-    <Compile Include="LK\LKInstructor.cs" />
-    <Compile Include="LK\BaseLK.cs" />
+    <Compile Include="Models\LK\LKPath.cs" />
+    <Compile Include="Models\LK\LKTag.cs" />
+    <Compile Include="Models\LK\LKCategory.cs" />
+    <Compile Include="Models\LK\LKInstructor.cs" />
+    <Compile Include="Models\Base\BaseLK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserCourses.cs" />
-    <Compile Include="UserFav.cs" />
-    <Compile Include="UserNotes.cs" />
+    <Compile Include="Models\UserPathes.cs" />
+    <Compile Include="Models\UserCourses.cs" />
+    <Compile Include="Models\UserFav.cs" />
+    <Compile Include="Models\UserNotes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

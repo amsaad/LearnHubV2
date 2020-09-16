@@ -10,7 +10,7 @@ namespace LearnHub.Entities
     {
         public string CertName { get; set; }
         public string About { get; set; }
-        public int CoursesCounter { get; set; }
+        public IEnumerable<HubCourses> Courses { get; set; }
 
     }
 }
