@@ -18,7 +18,6 @@ namespace LearnHub.API.Controllers
     {
         private IRepository<LKCategory> Store;
 
-
         public CategoryController()
         {
             Store = new LKCategoryStore();

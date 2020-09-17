@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/extra")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="bg-gradient">
+    @*<nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top flex-md-nowrap p-1 shadow">
+            <a class="navbar-brand" href="#"><span class="h2 logoTXT">LearnHub</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto topnav">
+
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-red text-white" href="#">Request new course</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bell"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Carfax</a>
+                            <a class="dropdown-item" href="#">Carproof</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Omnivic</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link btn text-dark" type="button" href="#" data-toggle="modal" data-target="#myModal">
+                            Sign In <i class="fa fa-sign-in"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn text-dark" type="button" href="#" data-toggle="modal" data-target="#myModal">
+                            Register <i class="fa fa-unlock"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>*@
+
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row bg-warning">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center bg-warning">
+                <a class="navbar-brand brand-logo" href="#">
+                    LearnHub
+                </a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center">
+                @*<button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>*@
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bell"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Carfax</a>
+                            <a class="dropdown-item" href="#">Carproof</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Omnivic</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn text-dark" type="button" href="#" data-toggle="modal" data-target="#myModal">
+                            Sign In <i class="fa fa-sign-in"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn text-dark" type="button" href="#" data-toggle="modal" data-target="#myModal">
+                            Register <i class="fa fa-unlock"></i>
+                        </a>
+                    </li>
+                    @*<li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
+                            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                                <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="Profile image">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                                <div class="dropdown-header text-center">
+                                    <img class="img-md rounded-circle" src="../assets/images/faces/face8.jpg" alt="Profile image">
+                                    <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                                    <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
+                                </div>
+                                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+                                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary"></i> Messages</a>
+                                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary"></i> Activity</a>
+                                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary"></i> FAQ</a>
+                                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary"></i>Sign Out</a>
+                            </div>
+                        </li>*@
+                </ul>
+                @*<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="mdi mdi-menu"></span>
+                    </button>*@
+            </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            @*<div class="right-sidebar-toggler-wrapper">
+                    <div class="sidebar-toggler" id="layout-toggler"><i class="mdi mdi-settings"></i></div>
+                    <div class="sidebar-toggler" id="chat-toggler"><i class="mdi mdi-chat-processing"></i></div>
+                    <div class="sidebar-toggler"><a href="https://www.bootstrapdash.com/demo/star-admin-pro/src/docs/documentation.html" target="_blank"><i class="mdi mdi-file-document-outline"></i></a></div>
+                    <div class="sidebar-toggler"><a href="https://www.bootstrapdash.com/product/star-admin-pro" target="_blank"><i class="mdi mdi-cart"></i></a></div>
+                </div>*@
+            @*<div class="theme-setting-wrapper">
+                    <div id="theme-settings" class="settings-panel">
+                        <i class="settings-close mdi mdi-close"></i>
+                        <div class="d-flex align-items-center justify-content-between border-bottom">
+                            <p class="settings-heading font-weight-bold border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Template Demos </p>
+                        </div>
+                        <div class="demo-screen-wrapper">
+                            <a href="../demo_1/index.html" class="demo-thumb-image" id="theme-light-switch">
+                                <img src="../assets/images/screenshots/default.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_2/index.html" class="demo-thumb-image">
+                                <img src="../assets/images/screenshots/default-two.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_3/index.html" class="demo-thumb-image" id="theme-dark-switch">
+                                <img src="../assets/images/screenshots/default-dark.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_4/index.html" class="demo-thumb-image">
+                                <img src="../assets/images/screenshots/analytics-dasboard.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_5/index.html" class="demo-thumb-image">
+                                <img src="../assets/images/screenshots/Marketing-dashboard.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_6/index.html" class="demo-thumb-image">
+                                <img src="../assets/images/screenshots/crm-dashboard.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_7/index.html" class="demo-thumb-image">
+                                <img src="../assets/images/screenshots/modern-dashboard.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_8/index.html" class="demo-thumb-image">
+                                <img src="../assets/images/screenshots/e-commerce_dashboard.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_9/index.html" class="demo-thumb-image">
+                                <img src="../assets/images/screenshots/finance-dashboard.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_10/index.html" class="demo-thumb-image">
+                                <img src="../assets/images/screenshots/classic-dashboard.jpg" alt="demo image">
+                            </a>
+                            <a href="../demo_11/index.html" class="demo-thumb-image">
+                                <img src="../assets/images/screenshots/horizontal-screens.jpg" alt="demo image">
+                            </a>
+                        </div>
+                    </div>
+                </div>*@
+            @*<div id="right-sidebar" class="settings-panel">
+                    <i class="settings-close mdi mdi-close"></i>
+                    <div class="d-flex align-items-center justify-content-between border-bottom">
+                        <p class="settings-heading font-weight-bold border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+                    </div>
+                    <ul class="chat-list">
+                        <li class="list active">
+                            <div class="profile">
+                                <img src="../assets/images/faces/face1.jpg" alt="image">
+                                <span class="online"></span>
+                            </div>
+                            <div class="info">
+                                <p>Thomas Douglas</p>
+                                <p>Available</p>
+                            </div>
+                            <small class="text-muted my-auto">19 min</small>
+                        </li>
+                        <li class="list">
+                            <div class="profile">
+                                <img src="../assets/images/faces/face2.jpg" alt="image">
+                                <span class="offline"></span>
+                            </div>
+                            <div class="info">
+                                <div class="wrapper d-flex">
+                                    <p>Catherine</p>
+                                </div>
+                                <p>Away</p>
+                            </div>
+                            <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                            <small class="text-muted my-auto">23 min</small>
+                        </li>
+                        <li class="list">
+                            <div class="profile">
+                                <img src="../assets/images/faces/face3.jpg" alt="image">
+                                <span class="online"></span>
+                            </div>
+                            <div class="info">
+                                <p>Daniel Russell</p>
+                                <p>Available</p>
+                            </div>
+                            <small class="text-muted my-auto">14 min</small>
+                        </li>
+                        <li class="list">
+                            <div class="profile">
+                                <img src="../assets/images/faces/face4.jpg" alt="image">
+                                <span class="offline"></span>
+                            </div>
+                            <div class="info">
+                                <p>James Richardson</p>
+                                <p>Away</p>
+                            </div>
+                            <small class="text-muted my-auto">2 min</small>
+                        </li>
+                        <li class="list">
+                            <div class="profile">
+                                <img src="../assets/images/faces/face5.jpg" alt="image">
+                                <span class="online"></span>
+                            </div>
+                            <div class="info">
+                                <p>Madeline Kennedy</p>
+                                <p>Available</p>
+                            </div>
+                            <small class="text-muted my-auto">5 min</small>
+                        </li>
+                        <li class="list">
+                            <div class="profile">
+                                <img src="../assets/images/faces/face6.jpg" alt="image">
+                                <span class="online"></span>
+                            </div>
+                            <div class="info">
+                                <p>Sarah Graves</p>
+                                <p>Available</p>
+                            </div>
+                            <small class="text-muted my-auto">47 min</small>
+                        </li>
+                    </ul>
+                </div>*@
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    @*<li class="nav-item nav-profile">
+                        <a href="#" class="nav-link">
+                            <div class="profile-image">
+                                <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="profile image">
+                                <div class="dot-indicator bg-success"></div>
+                            </div>
+                            <div class="text-wrapper">
+                                <p class="profile-name">Allen Moreno</p>
+                                <p class="designation">Premium user</p>
+                            </div>
+                        </a>
+                                    </li>*@
+                    <li class="nav-item nav-category">Main Menu</li>
+                    <li class="nav-item active">
+                        <a class="nav-link collapsed" data-toggle="collapse" href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown">
+                            @*<i class="menu-icon"></i>*@
+                            <span class="menu-title"> Categories</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="dashboard-dropdown" style="">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="index.html">Dashboard 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/dashboards/dashboard-2.html">Dashboard 2</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="../docs/documentation.html">
+                            <i class="menu-icon typcn typcn-book"></i>
+                            <span class="menu-title">Documentation</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <!-- Page Title Header Starts-->
+                    <div class="row page-title-header">
+                        <div class="col-12">
+                            <div class="page-header">
+                                <h4 class="page-title">Dashboard</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                           
+                        </div>
+                    </div>
+                    <!-- Page Title Header Ends-->
+                    <div class="row">
+                        <div class="col">
+                            @RenderBody()
+                        </div>
+                    </div>
+                    @*<div class="row">
+                        <div class="col-md-4 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">Recent Events</h4>
+                                    <div class="d-flex py-2 border-bottom">
+                                        <div class="wrapper">
+                                            <small class="text-muted">Mar 14, 2019</small>
+                                            <p class="font-weight-semibold text-gray mb-0">Change in Directors</p>
+                                        </div>
+                                        <small class="text-muted ml-auto">Edit event</small>
+                                    </div>
+                                    <div class="d-flex py-2 border-bottom">
+                                        <div class="wrapper">
+                                            <small class="text-muted">Mar 14, 2019</small>
+                                            <p class="font-weight-semibold text-gray mb-0">Other Events</p>
+                                        </div>
+                                        <small class="text-muted ml-auto">Edit event</small>
+                                    </div>
+                                    <div class="d-flex py-2 border-bottom">
+                                        <div class="wrapper">
+                                            <small class="text-muted">Mar 14, 2019</small>
+                                            <p class="font-weight-semibold text-gray mb-0">Quarterly Report</p>
+                                        </div>
+                                        <small class="text-muted ml-auto">Edit event</small>
+                                    </div>
+                                    <div class="d-flex pt-2">
+                                        <div class="wrapper">
+                                            <small class="text-muted">Mar 14, 2019</small>
+                                            <p class="font-weight-semibold text-gray mb-0">Change in Directors</p>
+                                        </div>
+                                        <small class="text-muted ml-auto">Edit event</small>
+                                    </div>
+                                    <a class="d-block mt-5" href="#">Show all</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between pb-3">
+                                        <h4 class="card-title mb-0">Activities</h4>
+                                        <p class="mb-0 text-muted">20 finished, 5 remaining</p>
+                                    </div>
+                                    <ul class="timeline">
+                                        <li class="timeline-item">
+                                            <p class="timeline-content"><a href="#">Ben Tossell</a> assign you a task</p>
+                                            <p class="event-time">Just now</p>
+                                        </li>
+                                        <li class="timeline-item">
+                                            <p class="timeline-content"><a href="#">Ben Tossell</a> assign you a task</p>
+                                            <p class="event-time">Just now</p>
+                                        </li>
+                                        <li class="timeline-item">
+                                            <p class="timeline-content"><a href="#">Ben Tossell</a> assign you a task</p>
+                                            <p class="event-time">Just now</p>
+                                        </li>
+                                        <li class="timeline-item">
+                                            <p class="timeline-content"><a href="#">Ben Tossell</a> assign you a task</p>
+                                            <p class="event-time">Just now</p>
+                                        </li>
+                                        <li class="timeline-item">
+                                            <p class="timeline-content"><a href="#">Ben Tossell</a> assign you a task</p>
+                                            <p class="event-time">Just now</p>
+                                        </li>
+                                    </ul>
+                                    <a class="d-block mt-3" href="#">Show all</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">People Also Watch</h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-stretched">
+                                            <thead>
+                                                <tr>
+                                                    <th>Symbol</th>
+                                                    <th>Last Price</th>
+                                                    <th>Change</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-1 text-dark font-weight-medium">NFLX</p><small class="font-weight-medium">Netflix, Inc.</small>
+                                                    </td>
+                                                    <td class="font-weight-medium">$250.00</td>
+                                                    <td class="text-success font-weight-medium">+12.64</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-1 text-dark font-weight-medium">TSLA</p><small class="font-weight-medium">Tesla, Inc.</small>
+                                                    </td>
+                                                    <td class="font-weight-medium"></td>
+                                                    <td class="text-danger font-weight-medium"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-1 text-dark font-weight-medium"></p><small class="font-weight-medium"></small>
+                                                    </td>
+                                                    <td class="font-weight-medium">$250.00</td>
+                                                    <td class="text-danger font-weight-medium">+12.64</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-1 text-dark font-weight-medium">AMZN</p><small class="font-weight-medium">Amazon.com, Inc.</small>
+                                                    </td>
+                                                    <td class="font-weight-medium">$546.00</td>
+                                                    <td class="text-success font-weight-medium">+24.34</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="d-block mt-3" href="#">Show all</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="container-fluid clearfix">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019 <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+                            Hand-crafted &amp; made with <i class="mdi mdi-heart text-danger"></i>
+                        </span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+
+
+
+
+
+   
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
