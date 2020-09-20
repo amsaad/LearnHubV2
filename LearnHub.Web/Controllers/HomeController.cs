@@ -1,19 +1,16 @@
-﻿using LearnHub.ApiHelper.Lookups;
-using LearnHub.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LearnHub.Web.Configs;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LearnHub.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> IndexAsync()
         {
-          //await Category._category.List();
+            //await Category._category.List();
+            SysSettings s = new SysSettings();
+            var result = await s.GetSettings();
             return View();
         }
 

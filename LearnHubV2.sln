@@ -17,11 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Repository", "Lear
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.API", "LearnHub.API\LearnHub.API.csproj", "{E10714D5-E4D0-4F86-A492-9C923148518B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Web", "LearnHub.Web\LearnHub.Web.csproj", "{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Web2", "LearnHub.Web\LearnHub.Web2.csproj", "{7E499BC9-79C6-46A5-85A2-D8A1E1952D28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.ApiHelper", "LearnHub.ApiHelper\LearnHub.ApiHelper.csproj", "{0E2BDB19-6D46-4503-8B4C-FC52431525D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Utils", "LearnHub.Utils\LearnHub.Utils.csproj", "{34C6B532-370E-49A4-B0CA-05247533E338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.WebV1", "LearnHub.WebV1\LearnHub.WebV1.csproj", "{626CEDA2-B905-4D85-B4FD-F8CFA00F13FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{34C6B532-370E-49A4-B0CA-05247533E338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34C6B532-370E-49A4-B0CA-05247533E338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34C6B532-370E-49A4-B0CA-05247533E338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{626CEDA2-B905-4D85-B4FD-F8CFA00F13FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{626CEDA2-B905-4D85-B4FD-F8CFA00F13FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{626CEDA2-B905-4D85-B4FD-F8CFA00F13FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{626CEDA2-B905-4D85-B4FD-F8CFA00F13FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{7E499BC9-79C6-46A5-85A2-D8A1E1952D28} = {3579F0E5-DB5D-4BFE-971F-9C7697FBAFA8}
 		{0E2BDB19-6D46-4503-8B4C-FC52431525D5} = {161E0CA7-F00A-4343-8C0D-5A887230BFC1}
 		{34C6B532-370E-49A4-B0CA-05247533E338} = {161E0CA7-F00A-4343-8C0D-5A887230BFC1}
+		{626CEDA2-B905-4D85-B4FD-F8CFA00F13FE} = {3579F0E5-DB5D-4BFE-971F-9C7697FBAFA8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8CCE01E2-85B3-4A14-8479-810F55C3C19D}

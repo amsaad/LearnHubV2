@@ -11,6 +11,11 @@ namespace LearnHub.API.Helpers
 {
     public class APIBase : ApiController
     {
+        public APIBase()
+        {
+
+        }
+
         public HttpResponseMessage response { get; set; }
 
         protected HttpResponseMessage CreateResponse(HttpStatusCode httpStatus, object val)

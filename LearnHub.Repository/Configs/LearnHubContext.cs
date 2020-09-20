@@ -40,5 +40,7 @@ namespace LearnHub.Repository
         public DbSet<UserCourses> UserCourses { get; set; }
         public DbSet<UserPathes> UserPathes { get; set; }
 
+        public DbSet<AppSettings> SysSettings { get; set; }
+
     }
 }

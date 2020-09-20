@@ -12,8 +12,12 @@ namespace LearnHub.API.Controllers
 {
     public class LKInstructorController : APIBase
     {
-        private IRepository<LKInstructor> Store;
-        
+        private LKInstructorStore Store;
+        public LKInstructorController()
+        {
+            Store = new LKInstructorStore();
+        }
+
         // GET: api/LKInstructor
         public IEnumerable<LKInstructor> Get()
         {

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AppRole.cs" />
+    <Compile Include="Models\AppSettings.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\Base\BaseEntity.cs" />
     <Compile Include="Models\HubCourses.cs" />
