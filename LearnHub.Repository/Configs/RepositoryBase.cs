@@ -27,18 +27,17 @@ namespace LearnHub.Repository
             dbSet = _context.Set<T>();
         }
 
-
-
-
         #region Get
         public T GetByUserID(string UID)
         {
             return dbSet.Where(c => c.UserID == UID).FirstOrDefault();
         }
+
         public virtual T Get(int ID)
         {
             return dbSet.Find(ID);
         }
+
         public virtual T Get(Expression<Func<T, bool>> where)
         {
             return dbSet.Where(where).FirstOrDefault<T>();
@@ -82,6 +81,59 @@ namespace LearnHub.Repository
         }
         #endregion
 
+        #region GetAsync
+        public async Task<T> GetByUserIDAsync(string UID)
+        {
+            return await dbSet.Where(c => c.UserID == UID).FirstOrDefaultAsync();
+        }
+        public virtual async Task<T> GetAsync(int ID)
+        {
+            return await dbSet.FindAsync(ID);
+        }
+        public virtual async Task<T> GetAsync(Expression<Func<T, bool>> where)
+        {
+            return await dbSet.Where(where).FirstOrDefaultAsync<T>();
+        }
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
+        {
+            return await dbSet.ToListAsync();
+        }
+        public virtual async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> where)
+        {
+            return await dbSet.Where(where).ToListAsync();
+        }
+
+        public virtual async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> expression, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
+        {
+            IQueryable<T> query = dbSet;
+
+            if (expression != null)
+            {
+                query = query.Where(expression);
+            }
+
+            if (includeProperties != null)
+            {
+                foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+
+            if (orderBy != null)
+            {
+                return await orderBy(query).ToListAsync();
+            }
+            else
+            {
+                return await query.ToListAsync();
+            }
+        }
+
+        #endregion
+
         #region Add Update
         public virtual void Add(T entity)
         {
@@ -90,6 +142,14 @@ namespace LearnHub.Repository
                 throw new ArgumentNullException("Action::Add - Message::No entity provided");
             }
             dbSet.Add(entity);
+        }
+        public virtual void AddRange(IEnumerable<T> entities)
+        {
+            if (entities == null || entities.Count() == 0)
+            {
+                throw new ArgumentNullException("Action::Add - Message::No entity provided");
+            }
+            dbSet.AddRange(entities);
         }
 
         public virtual void Update(T entity)
@@ -112,18 +172,6 @@ namespace LearnHub.Repository
             }
             dbSet.Remove(dbSet.Find(ID));
         }
-
-        public virtual void Delete(Expression<Func<T, bool>> where)
-        {
-            IEnumerable<T> objects = dbSet.Where<T>(where).AsEnumerable();
-            if (objects == null || objects.Count() <= 0)
-            {
-                throw new ArgumentNullException("Action::Delete - Message::No matching items");
-            }
-            foreach (T obj in objects)
-                dbSet.Remove(obj);
-        }
-
         public virtual void Delete(T entity)
         {
             if (entity == null)
@@ -136,7 +184,24 @@ namespace LearnHub.Repository
             }
             dbSet.Remove(entity);
         }
-
+        public virtual void Delete(Expression<Func<T, bool>> where)
+        {
+            IEnumerable<T> objects = dbSet.Where<T>(where).AsEnumerable();
+            if (objects == null || objects.Count() <= 0)
+            {
+                throw new ArgumentNullException("Action::Delete - Message::No matching items");
+            }
+            foreach (T obj in objects)
+                dbSet.Remove(obj);
+        }
+        public virtual void DeleteRange(IEnumerable<T> entities)
+        {
+            if (entities == null || entities.Count() == 0)
+            {
+                throw new ArgumentNullException("Action::Delete - Message::No entity provided");
+            }
+            dbSet.RemoveRange(entities);
+        }
         #endregion
 
         public virtual void Save()
@@ -144,6 +209,9 @@ namespace LearnHub.Repository
             DbContext.SaveChanges();
         }
 
-
+        public async Task SaveAsync()
+        {
+            await DbContext.SaveChangesAsync();
+        }
     }
 }

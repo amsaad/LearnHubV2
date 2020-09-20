@@ -16,6 +16,7 @@ namespace LearnHub.ApiHelper
         public string EntityUrl;
 
         private static string APIUrl => ConfigurationManager.AppSettings["APIUrl"];
+
         public APIConfiguration()
         {
             ApiClient = new HttpClient();
@@ -23,12 +24,13 @@ namespace LearnHub.ApiHelper
             ApiClient.BaseAddress = new Uri(APIUrl);
 
             // Handle security
+
+
         }
 
         protected async Task<HttpResponseMessage> Post(T inputs)
         {
             return await ApiClient.PostAsync(ActionURL("Add"), JsonParams(inputs));
-
         }
 
         internal async Task<HttpResponseMessage> Delete(int iD)

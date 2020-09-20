@@ -1,4 +1,5 @@
-﻿using LearnHub.Entities;
+﻿using LearnHub.API.Helpers;
+using LearnHub.Entities;
 using LearnHub.Repository;
 using System;
 using System.Collections.Generic;
@@ -9,16 +10,10 @@ using System.Web.Http;
 
 namespace LearnHub.API.Controllers
 {
-    public class LKInstructorController : ApiController
+    public class LKInstructorController : APIBase
     {
-        private LKInstructorStore _Store;
-        private LKInstructorStore Store
-        {
-            get
-            {
-                return _Store ?? (_Store = new LKInstructorStore()); ;
-            }
-        }
+        private IRepository<LKInstructor> Store;
+        
         // GET: api/LKInstructor
         public IEnumerable<LKInstructor> Get()
         {

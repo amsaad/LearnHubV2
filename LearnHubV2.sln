@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-DomainAndService", "0-DomainAndService", "{9CDA546D-228C-432D-AA9A-976F5A509D38}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-DomainAndDAL", "0-DomainAndDAL", "{9CDA546D-228C-432D-AA9A-976F5A509D38}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Middleware", "2-Middleware", "{161E0CA7-F00A-4343-8C0D-5A887230BFC1}"
 EndProject

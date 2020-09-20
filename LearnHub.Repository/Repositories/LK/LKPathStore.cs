@@ -1,5 +1,6 @@
 ﻿using LearnHub.Entities;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Repository
 {
-    public class LKInstructorStore : RepositoryBase<LKInstructor>, IRepository<LKInstructor>
+    public class LKPathStore : RepositoryBase<LKPath>
     {
-        public LKInstructorStore() : base(new LearnHubContext())
+        
+        public LKPathStore():base(new LearnHubContext())
         {
 
         }
-        public LKInstructorStore(LearnHubContext context) : base(context)
+        public LKPathStore(LearnHubContext context):base(context)
         {
 
         }
-
     }
 }

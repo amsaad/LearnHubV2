@@ -58,10 +58,14 @@
   <ItemGroup>
     <Compile Include="Configs\IRepository.cs" />
     <Compile Include="Configs\LearnHubContext.cs" />
-    <Compile Include="LK\LKPathStore.cs" />
-    <Compile Include="LK\LKInstructorStore.cs" />
-    <Compile Include="LK\LKTagStore.cs" />
-    <Compile Include="LK\LKCategoryStore.cs" />
+    <Compile Include="Repositories\UserCourseRequestRepo.cs" />
+    <Compile Include="Repositories\HubCoursesHeadTitlesRepo.cs" />
+    <Compile Include="Repositories\HubCoursesTitlesRepo.cs" />
+    <Compile Include="Repositories\HubCoursesRepo.cs" />
+    <Compile Include="Repositories\LK\LKPathStore.cs" />
+    <Compile Include="Repositories\LK\LKInstructorStore.cs" />
+    <Compile Include="Repositories\LK\LKTagStore.cs" />
+    <Compile Include="Repositories\LK\LKCategoryStore.cs" />
     <Compile Include="Migrations\202008190932023_lookupsv1.cs" />
     <Compile Include="Migrations\202008190932023_lookupsv1.designer.cs">
       <DependentUpon>202008190932023_lookupsv1.cs</DependentUpon>

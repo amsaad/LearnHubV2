@@ -9,6 +9,7 @@ using LearnHub.Web.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using LearnHub.Entities;
 using LearnHub.Repository;
+using LearnHub.Web.Configs;
 
 namespace LearnHub.Web
 {
@@ -18,9 +19,9 @@ namespace LearnHub.Web
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            //app.CreatePerOwinContext(ApplicationDbContext.Create);
-            //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            //app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+            app.CreatePerOwinContext(LearnHubContext.Create);
+            app.CreatePerOwinContext<HubUserManager>(HubUserManager.Create);
+            app.CreatePerOwinContext<HubSignInManager>(HubSignInManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
@@ -33,8 +34,8 @@ namespace LearnHub.Web
                 {
                     // Enables the application to validate the security stamp when the user logs in.
                     // This is a security feature which is used when you change a password or add an external login to your account.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, AppUser>(
-                        validateInterval: TimeSpan.FromMinutes(30),
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<HubUserManager, AppUser>(
+                        validateInterval: TimeSpan.FromDays(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
             });            
