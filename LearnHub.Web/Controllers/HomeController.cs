@@ -13,7 +13,7 @@ namespace LearnHub.Web.Controllers
     {
         public async Task<ActionResult> Index()
         {
-          await Category._category.List();
+          //await Category._category.List();
             return View();
         }
 

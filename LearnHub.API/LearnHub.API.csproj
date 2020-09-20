@@ -95,10 +95,12 @@
     <Compile Include="Controllers\LK\LKInstructorController.cs" />
     <Compile Include="Controllers\LK\LKPathController.cs" />
     <Compile Include="Controllers\LK\LKTagController.cs" />
-    <Compile Include="Controllers\LK\LkCategoryController.cs" />
+    <Compile Include="Controllers\LK\CategoryController.cs" />
+    <Compile Include="Filters\AllowOnlyAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ApiBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

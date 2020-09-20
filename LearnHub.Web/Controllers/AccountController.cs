@@ -10,30 +10,31 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LearnHub.Web.Models;
 using LearnHub.Entities;
+using LearnHub.Web.Configs;
 
 namespace LearnHub.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private HubSignInManager _signInManager;
+        private HubUserManager _userManager;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(HubUserManager userManager, HubSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
         }
 
-        public ApplicationSignInManager SignInManager
+        public HubSignInManager SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return _signInManager ?? HttpContext.GetOwinContext().Get<HubSignInManager>();
             }
             private set 
             { 
@@ -41,11 +42,11 @@ namespace LearnHub.Web.Controllers
             }
         }
 
-        public ApplicationUserManager UserManager
+        public HubUserManager UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<HubUserManager>();
             }
             private set
             {
@@ -152,7 +153,7 @@ namespace LearnHub.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new UserIdentity { UserName = model.Email, Email = model.Email };
+                var user = new AppUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -368,7 +369,7 @@ namespace LearnHub.Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new UserIdentity { UserName = model.Email, Email = model.Email };
+                var user = new AppUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
