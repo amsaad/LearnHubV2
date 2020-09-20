@@ -2204,6 +2204,9 @@ textarea {
     height: 100%;
     align-content: center;
 }
+    .body-container.card {
+        top: 25vh;
+    }
 
 .brand-logo {
     font-family: Lobster;
@@ -2229,7 +2232,6 @@ textarea {
 }
 
 .login .card {
-    top: 25vh;
     width: 400px;
     background-color: #d1d1d1 !important;
 }

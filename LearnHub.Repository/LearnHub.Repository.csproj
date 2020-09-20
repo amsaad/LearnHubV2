@@ -62,6 +62,14 @@
     <Compile Include="Migrations\202009201101309_appsettings.Designer.cs">
       <DependentUpon>202009201101309_appsettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009201757524_RoleEdit.cs" />
+    <Compile Include="Migrations\202009201757524_RoleEdit.Designer.cs">
+      <DependentUpon>202009201757524_RoleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009202112595_FixRoles.cs" />
+    <Compile Include="Migrations\202009202112595_FixRoles.Designer.cs">
+      <DependentUpon>202009202112595_FixRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\LK\AppSettingsRepo.cs" />
     <Compile Include="Repositories\UserCourseRequestRepo.cs" />
     <Compile Include="Repositories\HubCoursesHeadTitlesRepo.cs" />
@@ -124,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009201101309_appsettings.resx">
       <DependentUpon>202009201101309_appsettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009201757524_RoleEdit.resx">
+      <DependentUpon>202009201757524_RoleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009202112595_FixRoles.resx">
+      <DependentUpon>202009202112595_FixRoles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

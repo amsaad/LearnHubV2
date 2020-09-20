@@ -12,5 +12,7 @@ namespace LearnHub.Entities
         public AppRole() : base() { }
         public AppRole(string name) : base(name) { }
         // extra properties here 
+        
+        //public int RoleValue { get; set; } = 10;
     }
 }

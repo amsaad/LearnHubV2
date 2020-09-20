@@ -22,6 +22,7 @@ namespace LearnHub.Entities
 
         public int MaxSessionsSimultaneous { get; set; } = 1;
         public bool IsSignedIn { get; set; }
+        public bool MustChangePassword { get; set; }
 
     }
 }

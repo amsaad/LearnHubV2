@@ -25,7 +25,7 @@ namespace LearnHub.Entities
 
     public enum SystemRoles
     {
-        Admin, SuperUser
+        SysAdmin, SuperUser
 
     }
 
