@@ -2199,14 +2199,19 @@ textarea {
     font-weight: normal;
     font-style: normal;
 }
-
+.body-wrapper {
+position:relative;
+top:20vh;
+}
+    .body-wrapper.card {
+        background-color: #d1d1d1 !important;
+    }
 .body-container {
     height: 100%;
+    display: block;
+    top: 300px;
     align-content: center;
 }
-    .body-container.card {
-        top: 25vh;
-    }
 
 .brand-logo {
     font-family: Lobster;
@@ -2233,5 +2238,4 @@ textarea {
 
 .login .card {
     width: 400px;
-    background-color: #d1d1d1 !important;
 }

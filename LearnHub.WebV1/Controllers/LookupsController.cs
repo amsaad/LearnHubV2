@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace LearnHub.WebV1.Controllers
+namespace LearnHub.Web.Controllers
 {
     public class LookupsController : Controller
     {

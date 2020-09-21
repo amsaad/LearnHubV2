@@ -11,17 +11,17 @@ namespace LearnHub.Repository
 {
     public abstract class RepositoryBase<T> : IRepository<T> where T : BaseEntity
     {
-        internal LearnHubContext context;
+        internal HubContext context;
         internal DbSet<T> dbSet;
-        protected LearnHubContext DbContext
+        protected HubContext DbContext
         {
-            get { return context ?? (context = new LearnHubContext()); }
+            get { return context ?? (context = new HubContext()); }
         }
         protected RepositoryBase()
         {
             dbSet = DbContext.Set<T>();
         }
-        protected RepositoryBase(LearnHubContext _context)
+        protected RepositoryBase(HubContext _context)
         {
             context = _context;
             dbSet = _context.Set<T>();
@@ -212,6 +212,29 @@ namespace LearnHub.Repository
         public async Task SaveAsync()
         {
             await DbContext.SaveChangesAsync();
+        }
+
+        private bool _disposed = false;
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                
+            }
+
+            
+
+            _disposed = true;
         }
     }
 }

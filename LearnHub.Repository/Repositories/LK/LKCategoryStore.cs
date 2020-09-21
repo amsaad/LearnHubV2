@@ -10,11 +10,11 @@ namespace LearnHub.Repository
 {
     public class LKCategoryStore : RepositoryBase<LKCategory>
     {
-        public LKCategoryStore() : base(new LearnHubContext())
+        public LKCategoryStore() : base(new HubContext())
         {
 
         }
-        public LKCategoryStore(LearnHubContext context) : base(context)
+        public LKCategoryStore(HubContext context) : base(context)
         {
         }
     }

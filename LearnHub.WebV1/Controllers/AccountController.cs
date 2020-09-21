@@ -10,7 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LearnHub.Web.Models;
 using LearnHub.Entities;
-using LearnHub.Web.Configs;
+using LearnHub.Configs;
+using LearnHub.Repository;
 
 namespace LearnHub.Web.Controllers
 {
@@ -24,7 +25,7 @@ namespace LearnHub.Web.Controllers
         {
         }
 
-        public AccountController(HubUserManager userManager, HubSignInManager signInManager )
+        public AccountController(HubUserManager userManager, HubSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -36,9 +37,9 @@ namespace LearnHub.Web.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<HubSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -74,23 +75,70 @@ namespace LearnHub.Web.Controllers
             {
                 return View(model);
             }
+            AppSignInStatus status = AppSignInStatus.Failure;
+            if (model.UserName.Contains("@"))
+                status = await SignInManager.EmailSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
+            else
+                status = await SignInManager.AppPasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            switch (status)
             {
-                case SignInStatus.Success:
+                case AppSignInStatus.MustChangePassword:
+                    var user = await UserManager.FindByLoginAsync(model.UserName);
+                    TempData.Add("email", user.Email);
+                    return RedirectToAction(nameof(ChangePassword));
+                case AppSignInStatus.Success:
+                    var loginUser = UserManager.FindById(User.Identity.GetUserId());
+                    var logins = await UserManager.GetLoginsAsync(loginUser.Id);
+
+                    if (logins.Count() > loginUser.MaxSessionsSimultaneous)
+                        return RedirectToAction(nameof(Login));
+                    if (string.IsNullOrEmpty(returnUrl))
+                    {
+                        return RedirectToAction("Index", "Dash");
+                    }
                     return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
+                case AppSignInStatus.LockedOut:
                     return View("Lockout");
-                case SignInStatus.RequiresVerification:
+                case AppSignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
+                case AppSignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+        }
+
+        public ActionResult ChangePassword()
+        {
+            string email = TempData["email"]?.ToString();
+            if (string.IsNullOrEmpty(email) || string.IsNullOrWhiteSpace(email))
+                return RedirectToAction(nameof(Login));
+
+            MustChangePasswordViewModel model = new MustChangePasswordViewModel() { Email = email };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangePassword(MustChangePasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await UserManager.FindByEmailAsync(model.Email);
+
+            var token = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+
+            IdentityResult result = await UserManager.ResetPasswordAsync(user.Id, token, model.Password);
+            if (result.Succeeded)
+            {
+                user.MustChangePassword = false;
+                await UserManager.UpdateAsync(user);
+                return RedirectToAction("Index", "Dash");
+            }
+            return View();
         }
 
         //
@@ -122,7 +170,7 @@ namespace LearnHub.Web.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -158,8 +206,8 @@ namespace LearnHub.Web.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

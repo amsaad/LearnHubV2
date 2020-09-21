@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.ApiHelper", "Learn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Utils", "LearnHub.Utils\LearnHub.Utils.csproj", "{34C6B532-370E-49A4-B0CA-05247533E338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.WebV1", "LearnHub.WebV1\LearnHub.WebV1.csproj", "{626CEDA2-B905-4D85-B4FD-F8CFA00F13FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnHub.Web", "LearnHub.WebV1\LearnHub.Web.csproj", "{626CEDA2-B905-4D85-B4FD-F8CFA00F13FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -160,10 +160,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Configs\AppSettings.cs" />
-    <Compile Include="Configs\HubSignInManager.cs" />
-    <Compile Include="Configs\HubRolesManager.cs" />
-    <Compile Include="Configs\HubUserManager.cs" />
-    <Compile Include="Configs\NotificationsServices.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstallController.cs" />
@@ -214,7 +210,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <None Include="connections.config" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -344,6 +339,7 @@
     <Content Include="Views\Shared\_DashLayout.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Install\Index.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -359,10 +355,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LearnHub.ApiHelper\LearnHub.ApiHelper.csproj">
-      <Project>{0e2bdb19-6d46-4503-8b4c-fc52431525d5}</Project>
-      <Name>LearnHub.ApiHelper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LearnHub.Entities\LearnHub.Entities.csproj">
       <Project>{e70b1c80-e7da-4fe4-ad57-edfa41c1e5a4}</Project>
       <Name>LearnHub.Entities</Name>

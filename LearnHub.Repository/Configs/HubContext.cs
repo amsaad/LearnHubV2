@@ -9,20 +9,35 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LearnHub.Repository
 {
-    public class ApplicationDbContext : IdentityDbContext<AppUser>
+    //public class ApplicationDbContext : IdentityDbContext<AppUser>
+    //{
+    //    public ApplicationDbContext() :
+    //        base("LearnHubDB")
+    //    {
+
+    //    }
+    //    public static ApplicationDbContext Create()
+    //    {
+    //        return new ApplicationDbContext();
+    //    }
+    //}
+    public class HubContext : IdentityDbContext<AppUser>
     {
-        public ApplicationDbContext() :
-            base("LearnHubDB")
+        public HubContext()
+             : base("DefaultConnection", throwIfV1Schema: false)
         {
 
         }
-        public static ApplicationDbContext Create()
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            return new ApplicationDbContext();
+            Database.SetInitializer<HubContext>(null);
+           
+            base.OnModelCreating(modelBuilder);
         }
-    }
-    public class LearnHubContext : ApplicationDbContext
-    {
+        public static HubContext Create()
+        {
+            return new HubContext();
+        }
         public DbSet<LKCategory> Category { get; set; }
         public DbSet<LKTag> Tag { get; set; }
         public DbSet<LKInstructor> Instructor { get; set; }

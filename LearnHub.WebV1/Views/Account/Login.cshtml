@@ -8,7 +8,7 @@
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        <div class="d-flex justify-content-center h-100">
+        
             <div class="card border border-warning rounded">
                 <div class="card-body">
                     @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
@@ -16,7 +16,7 @@
                         <div class="input-group-prepend text-center">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "username" })
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "username" })
                         @*@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })*@
                     </div>
                     <div class="input-group form-group">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
     }
 </section>
 

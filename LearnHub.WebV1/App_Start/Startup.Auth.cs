@@ -6,7 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using LearnHub.Entities;
 using LearnHub.Repository;
-using LearnHub.Web.Configs;
+using LearnHub.Configs;
 
 namespace LearnHub.Web
 {
@@ -16,9 +16,10 @@ namespace LearnHub.Web
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(LearnHubContext.Create);
+            app.CreatePerOwinContext(HubContext.Create);
             app.CreatePerOwinContext<HubUserManager>(HubUserManager.Create);
             app.CreatePerOwinContext<HubSignInManager>(HubSignInManager.Create);
+            app.CreatePerOwinContext<HubRolesManager>(HubRolesManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider

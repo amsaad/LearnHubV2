@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LearnHub.Web.Models;
-using LearnHub.Web.Configs;
+using LearnHub.Configs;
 
 namespace LearnHub.Web.Controllers
 {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LearnHub.Repository
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> : IDisposable where T : class
     {
         T Get(int ID);
         T GetByUserID(string UID);

@@ -9,7 +9,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body class="bg-gradient" >
+<body class="bg-gradient" id="layout-body">
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top navbar-light d-flex flex-row bg-warning">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center bg-warning">
             <a class="navbar-brand brand-logo" href="#">
@@ -38,12 +38,9 @@
                 </button>
         </div>
     </nav>
-    <div class="clearfix"></div>
-    <div class="body-container">
-        <div class="row">
-            <div class="col">
-                @RenderBody()
-            </div>
+    <div class="body-wrapper">
+        <div class="d-flex justify-content-center">
+            @RenderBody()
         </div>
         <div class="row">
             <div class="col">

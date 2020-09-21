@@ -12,11 +12,11 @@ namespace LearnHub.Repository
     public class LKPathStore : RepositoryBase<LKPath>
     {
         
-        public LKPathStore():base(new LearnHubContext())
+        public LKPathStore():base(new HubContext())
         {
 
         }
-        public LKPathStore(LearnHubContext context):base(context)
+        public LKPathStore(HubContext context):base(context)
         {
 
         }

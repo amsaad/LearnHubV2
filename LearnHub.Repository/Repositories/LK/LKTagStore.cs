@@ -10,11 +10,11 @@ namespace LearnHub.Repository
 {
     public class LKTagStore : RepositoryBase<LKTag>
     {
-        public LKTagStore():base(new LearnHubContext())
+        public LKTagStore():base(new HubContext())
         {
 
         }
-        public LKTagStore(LearnHubContext context):base(context)
+        public LKTagStore(HubContext context):base(context)
         {
 
         }

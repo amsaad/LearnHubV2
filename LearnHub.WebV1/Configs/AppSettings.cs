@@ -1,4 +1,4 @@
-﻿using LearnHub.ApiHelper;
+﻿
 using LearnHub.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,12 +15,12 @@ namespace LearnHub.Web.Configs
         [OutputCache(Duration = 3600)]
         public async Task<AppSettings> GetSettings()
         {
-            SystemSettings sys = new SystemSettings();
-            HttpResponseMessage response = await sys.ListAsync();
-            if (response.IsSuccessStatusCode)
-            { 
+            //SystemSettings sys = new SystemSettings();
+            //HttpResponseMessage response = await sys.ListAsync();
+            //if (response.IsSuccessStatusCode)
+            //{ 
             
-            }
+            //}
             return await Task.FromResult(new AppSettings());
         }
     }

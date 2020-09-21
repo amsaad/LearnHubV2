@@ -8,8 +8,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using LearnHub.Configs;
+using LearnHub.Repository;
 
-namespace LearnHub.WebV1.Controllers
+namespace LearnHub.Web.Controllers
 {
     public class InstallController : Controller
     {
@@ -43,7 +45,7 @@ namespace LearnHub.WebV1.Controllers
         {
             get
             {
-                return _roleManager ?? HttpContext.GetOwinContext().Get<HubRolesManager>();
+                return _roleManager ?? HubRolesManager.Creat(HttpContext.GetOwinContext());
             }
             private set
             {
@@ -53,44 +55,55 @@ namespace LearnHub.WebV1.Controllers
         // GET: Install
         public async Task<ActionResult> Index()
         {
-            using (var db = new LearnHub.Repository.LearnHubContext())
+
+            using (var repo = new AppSettingsRepo())
             {
-                var settings = db.SysSettings.FirstOrDefault();
-                if (settings == null)
+                var r = await repo.GetAllAsync();
+                if (r.Count() > 0)
                 {
-                    var user = new Entities.AppUser()
-                    {
-                        UserName = "amsaad",
-                        Email = "ashoooh@gmail.com",
-                        EmailConfirmed = true,
-                        MaxSessionsSimultaneous = int.MaxValue,
-                        MustChangePassword = true
-                    };
-                    var userResult = await UserManager.CreateAsync(user, "Learnhub@123");
-                    if (userResult.Succeeded)
-                    {
-                        if (!await RolesManager.RoleExistsAsync(SystemRoles.SysAdmin.ToString()))
-                        {
-                            RolesManager.Create(new AppRole()
-                            {
-                                Name = SystemRoles.SysAdmin.ToString()
-                            });
-                        }
-                        var currentUser = UserManager.FindByName(user.UserName);
-                        await UserManager.AddToRoleAsync(currentUser.Id, SystemRoles.SysAdmin.ToString());
-                        db.SysSettings.Add(new Entities.AppSettings()
-                        {
-                            UserID = currentUser.Id,
-                            IsRegistrationOpen = false,
-                            IsRegistrationRequiredApproval = true,
-                        });
-                        await db.SaveChangesAsync();
-                        //await SignInManager.SignInAsync(user, isPersistent: false, false);
-                        return RedirectToAction("Login", "Account");
-                    }
+                    return RedirectToAction("Login", "Account");
                 }
             }
-            return View();
+
+            //Create first user
+            var user = new AppUser()
+            {
+                UserName = "amsaad",
+                Email = "ashoooh@gmail.com",
+                EmailConfirmed = true,
+                MaxSessionsSimultaneous = int.MaxValue,
+                MustChangePassword = true
+            };
+            //var userResult = await UserManager.CreateAsync(user, "Learnhub@123");
+            var currentUser = UserManager.FindByName(user.UserName);
+
+            if (currentUser!=null)
+            {
+                bool RoleExist = await RolesManager.RoleExistsAsync(SystemRoles.SysAdmin.ToString());
+                //If admin role not exist
+                if (!RoleExist)
+                {
+                    RolesManager.Create(new AppRole()
+                    {
+
+                        Name = SystemRoles.SysAdmin.ToString()
+                    });
+                }
+                //var currentUser = UserManager.FindByName(user.UserName);
+                await UserManager.AddToRoleAsync(currentUser.Id, SystemRoles.SysAdmin.ToString());
+
+                using (var repo = new AppSettingsRepo())
+                {
+                    repo.Add(new Entities.AppSettings()
+                    {
+                        UserID = currentUser.Id,
+                        IsRegistrationOpen = false,
+                        IsRegistrationRequiredApproval = true,
+                    });
+                    await repo.SaveAsync();
+                }
+            }
+            return RedirectToAction("Login", "Account");
         }
     }
 }

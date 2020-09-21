@@ -10,11 +10,11 @@ namespace LearnHub.Repository
 {
     public class AppSettingsRepo : RepositoryBase<AppSettings>
     {
-        public AppSettingsRepo():base(new LearnHubContext())
+        public AppSettingsRepo():base(new HubContext())
         {
 
         }
-        public AppSettingsRepo(LearnHubContext context):base(context)
+        public AppSettingsRepo(HubContext context):base(context)
         {
 
         }

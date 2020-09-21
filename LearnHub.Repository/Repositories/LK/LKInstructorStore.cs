@@ -10,11 +10,11 @@ namespace LearnHub.Repository
 {
     public class LKInstructorStore : RepositoryBase<LKInstructor>
     {
-        public LKInstructorStore() : base(new LearnHubContext())
+        public LKInstructorStore() : base(new HubContext())
         {
 
         }
-        public LKInstructorStore(LearnHubContext context) : base(context)
+        public LKInstructorStore(HubContext context) : base(context)
         {
 
         }

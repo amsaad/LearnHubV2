@@ -45,6 +45,27 @@
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -56,8 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configs\HubRolesManager.cs" />
+    <Compile Include="Configs\HubSignInManager.cs" />
+    <Compile Include="Configs\HubUserManager.cs" />
     <Compile Include="Configs\IRepository.cs" />
-    <Compile Include="Configs\LearnHubContext.cs" />
+    <Compile Include="Configs\HubContext.cs" />
+    <Compile Include="Configs\NotificationsServices.cs" />
     <Compile Include="Migrations\202009201101309_appsettings.cs" />
     <Compile Include="Migrations\202009201101309_appsettings.Designer.cs">
       <DependentUpon>202009201101309_appsettings.cs</DependentUpon>
@@ -69,6 +94,22 @@
     <Compile Include="Migrations\202009202112595_FixRoles.cs" />
     <Compile Include="Migrations\202009202112595_FixRoles.Designer.cs">
       <DependentUpon>202009202112595_FixRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009210736244_fix.cs" />
+    <Compile Include="Migrations\202009210736244_fix.Designer.cs">
+      <DependentUpon>202009210736244_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009210746299_t.cs" />
+    <Compile Include="Migrations\202009210746299_t.Designer.cs">
+      <DependentUpon>202009210746299_t.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009210820191_fixRolelookup.cs" />
+    <Compile Include="Migrations\202009210820191_fixRolelookup.Designer.cs">
+      <DependentUpon>202009210820191_fixRolelookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009210826201_fixRolelookup1.cs" />
+    <Compile Include="Migrations\202009210826201_fixRolelookup1.Designer.cs">
+      <DependentUpon>202009210826201_fixRolelookup1.cs</DependentUpon>
     </Compile>
     <Compile Include="Repositories\LK\AppSettingsRepo.cs" />
     <Compile Include="Repositories\UserCourseRequestRepo.cs" />
@@ -138,6 +179,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009202112595_FixRoles.resx">
       <DependentUpon>202009202112595_FixRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009210736244_fix.resx">
+      <DependentUpon>202009210736244_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009210746299_t.resx">
+      <DependentUpon>202009210746299_t.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009210820191_fixRolelookup.resx">
+      <DependentUpon>202009210820191_fixRolelookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009210826201_fixRolelookup1.resx">
+      <DependentUpon>202009210826201_fixRolelookup1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

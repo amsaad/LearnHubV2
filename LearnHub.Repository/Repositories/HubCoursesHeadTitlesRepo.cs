@@ -9,11 +9,11 @@ namespace LearnHub.Repository
 {
     public class HubCoursesHeadTitlesRepo : RepositoryBase<HubCoursesHeadTitles>
     {
-        public HubCoursesHeadTitlesRepo():base(new LearnHubContext())
+        public HubCoursesHeadTitlesRepo():base(new HubContext())
         {
 
         }
-        public HubCoursesHeadTitlesRepo(LearnHubContext context) : base(context)
+        public HubCoursesHeadTitlesRepo(HubContext context) : base(context)
         {
 
         }

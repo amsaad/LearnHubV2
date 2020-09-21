@@ -4,11 +4,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 
-namespace LearnHub.Web.Configs
+namespace LearnHub.Configs
 {
     public class HubUserManager : UserManager<AppUser>
     {
@@ -20,7 +18,7 @@ namespace LearnHub.Web.Configs
 
         public static HubUserManager Create(IdentityFactoryOptions<HubUserManager> options, IOwinContext context)
         {
-            var manager = new HubUserManager(new UserStore<AppUser>());
+            var manager = new HubUserManager(new UserStore<AppUser>(new LearnHub.Repository.HubContext()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<AppUser>(manager)
             {
@@ -64,5 +62,16 @@ namespace LearnHub.Web.Configs
             }
             return manager;
         }
+
+        public Task<AppUser> FindByLoginAsync(string loginName)
+        {
+            if (string.IsNullOrEmpty(loginName) || string.IsNullOrWhiteSpace(loginName))
+                return null;
+            if (loginName.Contains("@"))
+                return FindByEmailAsync(loginName);
+            return FindByNameAsync(loginName);
+        }
+
+       
     }
 }
